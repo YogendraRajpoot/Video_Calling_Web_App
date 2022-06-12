@@ -83,14 +83,14 @@ form h2,
 
 .conference-section {
   padding: 20px 30px;
-  max-width: 960px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .conference-section h2 {
   text-align: center;
-  font-size: 32px;
-  padding-bottom: 10px;
+  /* font-size: 32px; */
+  padding-bottom: 5px;
   border-bottom: 1px solid #546e7a;
 }
 
@@ -103,10 +103,11 @@ form h2,
 
 .peer-video {
   height: 250px;
-  width: 250px;
-  border-radius: 40%;
+  width: 100%;
+  /* border-radius: 40%; */
   object-fit: cover;
   margin-bottom: 10px;
+  border: 2px solid black;
 }
 
 .local.peer-video {
@@ -120,6 +121,7 @@ form h2,
 
 .peer-container {
   padding: 10px;
+  border: 2px solid black;
 }
 
 .control-bar {

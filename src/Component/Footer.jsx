@@ -1,6 +1,13 @@
-import { useAVToggle } from "@100mslive/react-sdk";
+import {
+  useAVToggle,
+  selectIsConnectedToRoom,
+  useHMSActions,
+  useHMSStore,
+} from "@100mslive/react-sdk";
 
 function Footer() {
+  const isConnected = useHMSStore(selectIsConnectedToRoom);
+  const hmsActions = useHMSActions();
   const { isLocalAudioEnabled, isLocalVideoEnabled, toggleAudio, toggleVideo } =
     useAVToggle();
   return (
@@ -11,6 +18,15 @@ function Footer() {
       <button className="btn-control" onClick={toggleVideo}>
         {isLocalVideoEnabled ? "Hide" : "Unhide"}
       </button>
+      {isConnected && (
+        <button
+          id="leave-btn"
+          className="btn-danger"
+          onClick={() => hmsActions.leave()}
+        >
+          Leave Room
+        </button>
+      )}
     </div>
   );
 }
