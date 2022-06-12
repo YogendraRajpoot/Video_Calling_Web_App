@@ -21,11 +21,15 @@ h5 {
 
 header {
   padding: 10px;
+  height: 10vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
+header > .logo {
+  width: 10%;
+}
 form {
   max-width: 450px;
   margin: 30px auto;
@@ -132,6 +136,7 @@ form h2,
   padding: 15px;
   justify-content: center;
   z-index: 10;
+  align-items: center;
 }
 
 .control-bar > *:not(:first-child) {

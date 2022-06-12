@@ -8,13 +8,8 @@ function Header() {
   return (
     <>
       {!isConnected && (
-        <header style={{ width: "10%" }}>
-          <img
-            style={{ width: "100%" }}
-            className="logo"
-            src={Logo}
-            alt="logo"
-          />
+        <header>
+          <img className="logo" src={Logo} alt="logo" />
           <h2>Welcome To YR Video Conference</h2>
         </header>
       )}
