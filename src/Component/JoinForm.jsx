@@ -5,7 +5,7 @@ function JoinForm() {
   const hmsActions = useHMSActions();
   const [inputValues, setInputValues] = useState({
     name: "",
-    // token: "",
+    token: "",
   });
 
   const handleInputChange = (e) => {
@@ -14,28 +14,28 @@ function JoinForm() {
       [e.target.name]: e.target.value,
     }));
   };
-  const endPoint =
-    "https://prod-in.100ms.live/hmsapi/https:/videocallingapp.app.100ms.live/";
+  // const endPoint =
+  //   "https://prod-in.100ms.live/hmsapi/https:/videocallingapp.app.100ms.live/";
 
-  const getToken = async (user_id) => {
-    const response = await fetch(`${endPoint}api/token`, {
-      method: "POST",
-      body: JSON.stringify({
-        user_id,
-        role: "host", //host, teacher, guest, student
-        type: "app",
-        room_id: "62a506c1b873787aa2709136",
-      }),
-    });
-    const { token } = await response.json();
-    return token;
-  };
+  // const getToken = async (user_id) => {
+  //   const response = await fetch(`${endPoint}api/token`, {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       user_id,
+  //       role: "host", //host, teacher, guest, student
+  //       type: "app",
+  //       room_id: "62a506c1b873787aa2709136",
+  //     }),
+  //   });
+  //   const { token } = await response.json();
+  //   return token;
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     hmsActions.join({
       userName: inputValues.name,
-      authToken: await getToken(inputValues.name),
+      authToken: inputValues.token,
     });
   };
 
@@ -53,7 +53,7 @@ function JoinForm() {
           placeholder="Your name"
         />
       </div>
-      {/* <div className="input-container">
+      <div className="input-container">
         <input
           required
           value={inputValues.token}
@@ -63,7 +63,7 @@ function JoinForm() {
           name="token"
           placeholder="Auth token"
         />
-      </div> */}
+      </div>
       <button className="btn-primary">Join</button>
     </form>
   );
